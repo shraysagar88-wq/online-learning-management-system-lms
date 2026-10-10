@@ -1,0 +1,70 @@
+X [ERROR] Could not resolve "./features/dashboard/dashboard.component"
+
+    src/app/app.routes.ts:1:35:
+      1 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] Could not resolve "./features/dashboard/dashboard.component"
+
+    src/app/app.routes.ts:1:35:
+      1 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2307: Cannot find module './features/dashboard/dashboard.component' or its corresponding type declarations. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...shboardComponent } from './features/dashboard/dashboard.component';
+        ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

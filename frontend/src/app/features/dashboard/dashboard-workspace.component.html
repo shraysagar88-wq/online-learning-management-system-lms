@@ -1,0 +1,89 @@
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><span>GU_LMS</span></div>
+    <div class="workspace">WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <button [class.active]="active==='Overview'" (click)="navigate('Overview')">⌂ <span>Overview</span></button>
+      <button *ngIf="isStudent" [class.active]="active==='My learning'" (click)="navigate('My learning')">▣ <span>My learning</span><b>{{enrollments.length}}</b></button>
+      <button [class.active]="active==='Courses'" (click)="navigate('Courses')">◫ <span>Course catalog</span></button>
+      <button *ngIf="isInstructor||isStudent" [class.active]="active==='Assignments'" (click)="navigate('Assignments')">✓ <span>Assignments</span></button>
+      <button *ngIf="isAdmin" [class.active]="active==='Users'" (click)="navigate('Users')">♙ <span>User management</span></button>
+      <button *ngIf="isAdmin" [class.active]="active==='Analytics'" (click)="navigate('Analytics')">◒ <span>Performance analytics</span></button>
+      <button [class.active]="active==='Activity'" (click)="navigate('Activity')">◷ <span>Activity</span></button>
+      <button *ngIf="isAdmin" [class.active]="active==='Settings'" (click)="navigate('Settings')">⚙ <span>Settings</span></button>
+    </nav>
+    <div class="help"><strong>Need a hand?</strong><small>Visit our help center</small><button (click)="showHelp=true">Get support →</button></div>
+    <button class="profile" (click)="openProfile()" aria-label="Open profile settings">
+      <span class="avatar">{{currentUser.name[0]}}</span>
+      <span class="profile-copy"><strong>{{currentUser.name}}</strong><small>{{role | titlecase}}</small></span>
+      <span aria-hidden="true">›</span>
+    </button>
+    <button class="logout" (click)="logout()">Sign out</button>
+  </aside>
+
+  <main class="main">
+    <header>
+      <div class="crumb">{{role | titlecase}} workspace <span>/</span> {{active}}</div>
+      <div class="header-actions">
+        <button class="icon-btn" title="Search courses" aria-label="Search courses" (click)="focusCourseSearch()">⌕</button>
+        <div class="notification-menu">
+          <button type="button" class="icon-btn notification-trigger" title="Notifications" aria-label="Open notifications" [attr.aria-expanded]="showNotifications" (click)="toggleNotifications()">🔔</button>
+          <section *ngIf="showNotifications" class="notification-panel" aria-label="Notifications">
+            <div class="notification-panel-head"><div><strong>Recent activity</strong><small>{{activity.length}} updates</small></div><button type="button" class="notification-close" title="Close notifications" aria-label="Close notifications" (click)="showNotifications=false">×</button></div>
+            <div class="notification-item" *ngFor="let item of activity"><span class="activity-dot">✓</span><div><strong>{{item.message}}</strong><small>{{item.time}}</small></div></div>
+            <p class="empty-state" *ngIf="activity.length===0">No recent activity.</p>
+            <button type="button" class="link notification-all" (click)="viewAllActivity()">View all activity</button>
+          </section>
+        </div>
+        <button class="top-avatar" title="Open profile" (click)="openProfile()">{{currentUser.name[0]}}</button>
+      </div>
+    </header>
+
+    <section class="content">
+      <div *ngIf="error" class="error" role="alert">{{error}}</div>
+      <div class="intro">
+        <div><p class="eyebrow">{{isAdmin?'SYSTEM OVERVIEW':isInstructor?'TEACHING OVERVIEW':'MY LEARNING'}}</p><h1>{{isAdmin?'Admin dashboard':isInstructor?'Instructor dashboard':'Student dashboard'}} <span>✦</span></h1><p class="muted">Manage courses, measure progress, and keep learning.</p></div>
+        <button class="primary" *ngIf="isInstructor||isAdmin" (click)="showCourseForm=true">＋ New course</button>
+      </div>
+
+      <div *ngIf="active==='Overview'" class="stats">
+        <div class="stat"><span class="stat-icon purple">◫</span><div><small>COURSES</small><strong>{{analytics.courses||courses.length}}</strong></div></div>
+        <div class="stat"><span class="stat-icon orange">◔</span><div><small>{{isAdmin?'USERS':isInstructor?'STUDENTS':'ENROLLED'}}</small><strong>{{isAdmin?(analytics.users||users.length):isInstructor?(analytics.students||0):enrollments.length}}</strong></div></div>
+        <div class="stat"><span class="stat-icon green">✓</span><div><small>COMPLETION RATE</small><strong>{{analytics.completionRate||0}}<sup>%</sup></strong></div></div>
+        <div class="stat"><span class="stat-icon blue">♧</span><div><small>SUBMISSIONS</small><strong>{{analytics.submissions||0}}</strong></div></div>
+      </div>
+
+      <div *ngIf="active==='Overview'" class="grid">
+        <div class="panel chart-panel"><div class="panel-head"><div><h2>{{isAdmin?'Platform activity':'Learning progress'}}</h2><p>Enrollment and completion performance</p></div></div><div class="metric-bars"><div *ngFor="let month of (analytics.monthlyEnrollments||[])"><span>{{month.month}}</span><i [style.height.%]="enrollmentBarHeight(month.count)"></i><b>{{month.count}}</b></div></div></div>
+        <div class="panel activity"><div class="panel-head"><div><h2>Recent activity</h2><p>Latest workspace updates</p></div><button class="link" (click)="navigate('Activity')">View all</button></div><div class="activity-row" *ngFor="let item of activity"><span class="activity-dot">✓</span><div><strong>{{item.message}}</strong><small>{{item.time}}</small></div></div></div>
+      </div>
+
+      <ng-container *ngIf="active==='Overview'||active==='Courses'">
+        <div class="section-heading"><div><h2>{{isAdmin?'Course management':isInstructor?'Your courses':'Course catalog'}}</h2><p>Browse, manage, and access course content.</p></div><div class="catalog-tools"><input #courseSearch [(ngModel)]="search" aria-label="Search courses" placeholder="Search courses..."/><button class="link" (click)="search='';courseSearch.focus()">Clear</button></div></div>
+        <div class="course-grid"><article class="course-card" *ngFor="let course of filteredCourses"><div class="course-cover" [class.cover-two]="course.id%2===0"><span>{{course.category||'DEVELOPMENT'}}</span><b>{{course.title[0]}}</b></div><div class="course-body"><div class="course-meta"><span>{{course.level}}</span><span>Course</span></div><h3>{{course.title}}</h3><p>{{course.description}}</p><div class="course-footer"><span class="mini-avatar">{{(course.instructorName||'A')[0]}}</span><span>{{course.instructorName||'GU_LMS'}}</span><button class="enroll" *ngIf="isStudent" (click)="enroll(course)">Enroll →</button><button class="enroll" *ngIf="isInstructor" (click)="selectCourse(course);navigate('Assignments')">Manage →</button><button class="enroll" *ngIf="isAdmin" (click)="updateCourse(course)">Save →</button><button class="table-action danger" *ngIf="isAdmin" (click)="deleteCourse(course)">Delete</button></div></div></article><p class="empty-state" *ngIf="filteredCourses.length===0">No courses match “{{search}}”.</p></div>
+      </ng-container>
+
+      <section *ngIf="active==='My learning'" class="panel page-panel"><div class="panel-head"><div><h2>My enrolled courses</h2><p>Complete course lessons to update your progress.</p></div></div><div class="learning-row" *ngFor="let enrollment of enrollments"><div><strong>{{enrollment.courseTitle}}</strong><small>{{enrollment.status}}</small></div><progress [value]="enrollment.progress" max="100"></progress><span>{{enrollment.progress}}%</span><button class="link" (click)="openLearningCourse(enrollment)">Open course →</button></div><div *ngIf="selectedLearningEnrollment" class="lesson-panel"><h3>{{selectedLearningEnrollment.courseTitle}}</h3><p class="muted">Complete each lesson. Progress is calculated automatically.</p><div class="lesson-row" *ngFor="let lesson of learningLessons"><div><strong>{{lesson.lessonOrder}}. {{lesson.title}}</strong><small>{{lesson.description}}</small></div><span class="status" *ngIf="lesson.completed">✓ Completed</span><button class="primary" *ngIf="!lesson.completed" (click)="completeLesson(lesson)">Mark lesson complete</button></div><p class="empty-state" *ngIf="learningLessons.length===0">No lessons are available for this course yet.</p></div><p class="empty-state" *ngIf="enrollments.length===0">You have not enrolled in a course yet. Browse the course catalog to get started.</p></section>
+
+      <section *ngIf="active==='Assignments'&&isInstructor" class="panel page-panel"><div class="panel-head"><div><h2>Assignments and grading</h2><p>Create assignments, review submissions, and provide feedback.</p></div><button class="primary" (click)="showAssignmentForm=true" [disabled]="!selectedCourse">＋ Assignment</button></div><label class="field-label">Course<select class="wide-select" [(ngModel)]="selectedCourse" (ngModelChange)="selectCourse($event)"><option [ngValue]="null">Select a course</option><option *ngFor="let course of courses" [ngValue]="course">{{course.title}}</option></select></label><div class="assignment-row" *ngFor="let assignment of assignments"><div><strong>{{assignment.title}}</strong><small>{{assignment.description}} · {{assignment.points}} points</small></div><button class="link" (click)="viewSubmissions(assignment)">View submissions</button></div><p class="empty-state" *ngIf="selectedCourse&&assignments.length===0">No assignments for this course yet.</p><div *ngIf="selectedAssignment" class="submissions"><h3>{{selectedAssignment.title}} submissions</h3><div *ngFor="let submission of submissions" class="submission"><div><strong>{{submission.studentName}}</strong><p>{{submission.content}}</p><small>Grade: {{submission.grade??'Pending'}} · {{submission.feedback||'No feedback'}}</small></div><div class="grade-box"><input type="number" min="0" [max]="selectedAssignment.points" [(ngModel)]="grade" placeholder="Grade"/><input [(ngModel)]="feedback" placeholder="Feedback"/><button class="primary" (click)="gradeSubmission(submission)">Save grade</button></div></div><p class="empty-state" *ngIf="submissions.length===0">No submissions to review yet.</p></div></section>
+
+      <section *ngIf="isStudent&&active==='Assignments'" class="panel page-panel"><div class="panel-head"><div><h2>Submit an assignment</h2><p>Choose a course and assignment to submit your work.</p></div></div><select class="wide-select" [(ngModel)]="selectedCourse" (ngModelChange)="selectCourse($event)"><option [ngValue]="null">Select a course</option><option *ngFor="let course of courses" [ngValue]="course">{{course.title}}</option></select><select class="wide-select" [(ngModel)]="selectedAssignment"><option [ngValue]="null">Select an assignment</option><option *ngFor="let assignment of assignments" [ngValue]="assignment">{{assignment.title}}</option></select><textarea [(ngModel)]="submissionText" placeholder="Write your submission..."></textarea><button class="primary" (click)="submitAssignment()" [disabled]="!selectedAssignment||!submissionText.trim()">Submit assignment</button></section>
+
+      <section *ngIf="active==='Users'&&isAdmin" class="panel page-panel"><div class="panel-head"><div><h2>User management</h2><p>Create, edit, delete, and manage roles.</p></div><button class="primary" (click)="showUserForm=true">＋ Add user</button></div><table><thead><tr><th>USER</th><th>ROLE</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody><tr *ngFor="let user of users"><td><strong>{{user.name}}</strong><small>{{user.email}}</small></td><td><span class="role-pill">{{user.role}}</span></td><td><span class="status">● {{user.active?'Active':'Inactive'}}</span></td><td><button class="table-action" (click)="editUser(user)">Edit</button><button class="table-action danger" (click)="removeUser(user.id)">Delete</button></td></tr></tbody></table></section>
+
+      <section *ngIf="active==='Analytics'&&isAdmin" class="panel page-panel"><div class="panel-head"><div><h2>Performance analytics</h2><p>System-wide performance metrics and reports.</p></div></div><div class="analytics-grid"><div><strong>{{analytics.users||0}}</strong><small>Total users</small></div><div><strong>{{analytics.courses||0}}</strong><small>Total courses</small></div><div><strong>{{analytics.enrollments||0}}</strong><small>Enrollments</small></div><div><strong>{{analytics.submissions||0}}</strong><small>Submissions</small></div></div><div class="metric-bars large"><div *ngFor="let month of (analytics.monthlyEnrollments||[])"><span>{{month.month}}</span><i [style.height.%]="enrollmentBarHeight(month.count)"></i><b>{{month.count}} enrollments</b></div></div></section>
+
+      <section *ngIf="active==='Activity'" class="panel page-panel"><div class="panel-head"><div><h2>Activity</h2><p>Recent changes in your learning workspace.</p></div></div><div class="activity-row" *ngFor="let item of activity"><span class="activity-dot">✓</span><div><strong>{{item.message}}</strong><small>{{item.time}}</small></div></div><p class="empty-state" *ngIf="activity.length===0">No recent activity.</p></section>
+
+      <section *ngIf="active==='Profile'" class="panel page-panel profile-panel"><div class="panel-head"><div><h2>Your profile</h2><p>Update the name and email on your account.</p></div></div><label>Full name<input [(ngModel)]="profileForm.name" name="profileName" required maxlength="100"/></label><label>Email<input type="email" [(ngModel)]="profileForm.email" name="profileEmail" required maxlength="254"/></label><p class="profile-role">Role <span class="role-pill">{{role}}</span></p><div class="profile-actions"><button class="primary" (click)="saveProfile()">Save profile</button><button class="link" (click)="logout()">Sign out</button></div></section>
+
+      <section *ngIf="active==='Settings'" class="panel page-panel settings-panel"><div class="panel-head"><div><h2>System settings</h2><p>Manage platform configuration.</p></div></div><label>Platform name<input [(ngModel)]="settings.platformName" name="platformName" required/></label><label>Timezone<select [(ngModel)]="settings.timezone" name="timezone"><option>Asia/Calcutta</option><option>UTC</option></select></label><label class="check"><input type="checkbox" [(ngModel)]="settings.allowSelfEnrollment" name="allowSelfEnrollment"/> Allow self enrollment</label><button class="primary" (click)="saveSettings()">Save settings</button></section>
+    </section>
+    <div class="toast" *ngIf="toast" role="status">✓ {{toast}}</div>
+  </main>
+</div>
+
+<div class="modal-backdrop" *ngIf="showUserForm" (click)="closeUserForm()"><div class="modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()"><h2>{{editingUser?'Edit user':'Add user'}}</h2><input [(ngModel)]="newUser.name" placeholder="Full name"/><input [(ngModel)]="newUser.email" type="email" placeholder="Email"/><input *ngIf="!editingUser" [(ngModel)]="newUser.password" type="password" placeholder="Temporary password"/><select [(ngModel)]="newUser.role"><option>STUDENT</option><option>INSTRUCTOR</option><option>ADMIN</option></select><div class="modal-actions"><button class="link" (click)="closeUserForm()">Cancel</button><button class="primary" (click)="saveUser()">Save user</button></div></div></div>
+<div class="modal-backdrop" *ngIf="showCourseForm" (click)="showCourseForm=false"><div class="modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()"><h2>Create course</h2><input [(ngModel)]="newCourse.title" placeholder="Course title"/><input [(ngModel)]="newCourse.description" placeholder="Description"/><textarea [(ngModel)]="newCourse.syllabus" placeholder="Syllabus"></textarea><select [(ngModel)]="newCourse.level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select><div class="modal-actions"><button class="link" (click)="showCourseForm=false">Cancel</button><button class="primary" (click)="createCourse()">Create course</button></div></div></div>
+<div class="modal-backdrop" *ngIf="showAssignmentForm" (click)="showAssignmentForm=false"><div class="modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()"><h2>Create assignment</h2><input [(ngModel)]="newAssignment.title" placeholder="Assignment title"/><input [(ngModel)]="newAssignment.description" placeholder="Description"/><input type="number" min="1" [(ngModel)]="newAssignment.points" placeholder="Points"/><div class="modal-actions"><button class="link" (click)="showAssignmentForm=false">Cancel</button><button class="primary" (click)="createAssignment()">Create assignment</button></div></div></div>
+<div class="modal-backdrop" *ngIf="showHelp" (click)="showHelp=false"><div class="modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()"><h2>GU_LMS support</h2><p>For account or course help, contact the learning team.</p><a class="support-link" href="mailto:support&#64;gu-lms.com">Email support&#64;gu-lms.com</a><div class="modal-actions"><button class="primary" (click)="showHelp=false">Close</button></div></div></div>

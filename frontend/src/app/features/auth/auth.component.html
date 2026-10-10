@@ -1,0 +1,33 @@
+<main class="auth-shell">
+  <a class="brand" href="/auth" aria-label="GU_LMS home">
+    <span class="brand-mark">✦</span>
+    <span>GU_LMS</span>
+  </a>
+
+  <section class="auth-panel">
+    <p class="eyebrow">LEARNING MANAGEMENT</p>
+    <h1>{{ isRegister ? 'Create your account' : 'Welcome back' }}</h1>
+    <p class="subheading">{{ isRegister ? 'Join your learning workspace.' : 'Sign in to continue to your workspace.' }}</p>
+
+    <form (ngSubmit)="submit()">
+      <label *ngIf="isRegister" for="auth-name">Full name</label>
+      <input *ngIf="isRegister" id="auth-name" name="name" [(ngModel)]="form.name" autocomplete="name" placeholder="Your name" required maxlength="100" />
+
+      <label for="auth-email">Email</label>
+      <input id="auth-email" name="email" type="email" [(ngModel)]="form.email" autocomplete="email" placeholder="name@example.com" required maxlength="254" />
+
+      <label for="auth-password">Password</label>
+      <input id="auth-password" name="password" type="password" [(ngModel)]="form.password" [attr.minlength]="isRegister ? 8 : null" [attr.autocomplete]="isRegister ? 'new-password' : 'current-password'" placeholder="Enter your password" required />
+
+      <p class="error" *ngIf="error" role="alert">{{ error }}</p>
+      <button class="submit" type="submit" [disabled]="busy">
+        {{ busy ? 'Please wait…' : isRegister ? 'Create account' : 'Sign in' }}
+      </button>
+    </form>
+
+    <p class="switch-mode">
+      {{ isRegister ? 'Already have an account?' : 'New to GU_LMS?' }}
+      <button type="button" (click)="toggleMode()">{{ isRegister ? 'Sign in' : 'Create an account' }}</button>
+    </p>
+  </section>
+</main>

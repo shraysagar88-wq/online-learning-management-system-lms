@@ -1,0 +1,257 @@
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1483:
+      1 │ ...lass="profile"><div class="avatar">{{api.user().name[0]}}</div><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1524:
+      1 │ ...user().name[0]}}</div><div><strong>{{api.user().name}}</strong><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:2:338:
+      2 │ ...v class="top-avatar">{{api.user().name[0]}}</div></div></header>...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'setRole' does not exist on type 'ApiService'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.ts:15:75:
+      15 │ ...role=r as Role;this.active='Overview';this.api.setRole(this.role)}
+         ╵                                                   ~~~~~~~
+
+
+X [ERROR] TS2531: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.ts:19:91:
+      19 │ ...ctorId:2,instructorName:this.api.user().name}).subscribe({next:...
+         ╵                            ~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1483:
+      1 │ ...lass="profile"><div class="avatar">{{api.user().name[0]}}</div><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1524:
+      1 │ ...user().name[0]}}</div><div><strong>{{api.user().name}}</strong><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:2:338:
+      2 │ ...v class="top-avatar">{{api.user().name[0]}}</div></div></header>...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'setRole' does not exist on type 'ApiService'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.ts:15:75:
+      15 │ ...role=r as Role;this.active='Overview';this.api.setRole(this.role)}
+         ╵                                                   ~~~~~~~
+
+
+X [ERROR] TS2531: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.ts:19:91:
+      19 │ ...ctorId:2,instructorName:this.api.user().name}).subscribe({next:...
+         ╵                            ~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1483:
+      1 │ ...lass="profile"><div class="avatar">{{api.user().name[0]}}</div><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1524:
+      1 │ ...user().name[0]}}</div><div><strong>{{api.user().name}}</strong><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:2:338:
+      2 │ ...v class="top-avatar">{{api.user().name[0]}}</div></div></header>...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2339: Property 'setRole' does not exist on type 'ApiService'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.ts:15:75:
+      15 │ ...role=r as Role;this.active='Overview';this.api.setRole(this.role)}
+         ╵                                                   ~~~~~~~
+
+
+X [ERROR] TS2531: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.ts:19:91:
+      19 │ ...ctorId:2,instructorName:this.api.user().name}).subscribe({next:...
+         ╵                            ~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG9: Property 'switchRole' does not exist on type 'DashboardComponent'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:226:
+      1 │ ...ass.on]="isStudent" (click)="switchRole('STUDENT')">Student</but...
+        ╵                               ~~~~~~~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG9: Property 'switchRole' does not exist on type 'DashboardComponent'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:308:
+      1 │ ....on]="isInstructor" (click)="switchRole('INSTRUCTOR')">Instructo...
+        ╵                               ~~~~~~~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG9: Property 'switchRole' does not exist on type 'DashboardComponent'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:391:
+      1 │ ...class.on]="isAdmin" (click)="switchRole('ADMIN')">Admin</button>...
+        ╵                               ~~~~~~~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1483:
+      1 │ ...lass="profile"><div class="avatar">{{api.user().name[0]}}</div><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:1:1524:
+      1 │ ...user().name[0]}}</div><div><strong>{{api.user().name}}</strong><...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG1: Object is possibly 'null'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:2:338:
+      2 │ ...v class="top-avatar">{{api.user().name[0]}}</div></div></header>...
+        ╵                                  ~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG5002: Unexpected closing tag "div". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.html:29:542:
+      29 │ ...><div class="toast" *ngIf="toast">✓ {{toast}}</div></main></div>
+         ╵                                                            ~~~~~~
+
+  Error occurs in the template of component DashboardComponent.
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...dule],templateUrl:'./dashboard.component.html',styleUrl:'./dashb...
+        ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS-992008: Could not find template file './dashboard-workspace.component.html'. [plugin angular-compiler]
+
+    src/app/features/dashboard/dashboard.component.ts:8:100:
+      8 │ ...,templateUrl:'./dashboard-workspace.component.html',styleUrl:'./...
+        ╵                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

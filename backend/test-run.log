@@ -1,0 +1,40 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-08T14:29:41.827+05:30  INFO 38196 --- [           main] com.lms.LmsApplication                   : Starting LmsApplication v1.0.0 using Java 25.0.4 with PID 38196 (C:\Users\Shray\Downloads\online-learning-management-system-lms-summary\backend\target\lms-api-1.0.0.jar started by Shray in C:\Users\Shray\Downloads\online-learning-management-system-lms-summary\backend)
+2026-10-08T14:29:41.832+05:30  INFO 38196 --- [           main] com.lms.LmsApplication                   : No active profile set, falling back to 1 default profile: "default"
+2026-10-08T14:29:43.223+05:30  INFO 38196 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-08T14:29:43.350+05:30  INFO 38196 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107 ms. Found 5 JPA repository interfaces.
+2026-10-08T14:29:44.415+05:30  INFO 38196 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-10-08T14:29:44.443+05:30  INFO 38196 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-08T14:29:44.445+05:30  INFO 38196 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-10-08T14:29:44.519+05:30  INFO 38196 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-08T14:29:44.522+05:30  INFO 38196 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2601 ms
+2026-10-08T14:29:44.840+05:30  INFO 38196 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-08T14:29:44.931+05:30  INFO 38196 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-10-08T14:29:44.995+05:30  INFO 38196 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-10-08T14:29:45.494+05:30  INFO 38196 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-08T14:29:45.563+05:30  INFO 38196 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-08T14:29:45.853+05:30  INFO 38196 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-10-08T14:29:45.856+05:30  INFO 38196 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-08T14:29:45.950+05:30  INFO 38196 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-08T14:29:47.314+05:30  INFO 38196 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-08T14:29:47.386+05:30  INFO 38196 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-08T14:29:48.268+05:30  WARN 38196 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-08T14:29:48.819+05:30  INFO 38196 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-10-08T14:29:49.007+05:30  INFO 38196 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-10-08T14:29:49.042+05:30  INFO 38196 --- [           main] com.lms.LmsApplication                   : Started LmsApplication in 8.027 seconds (process running for 8.954)

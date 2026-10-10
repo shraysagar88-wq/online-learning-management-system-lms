@@ -1,0 +1,9 @@
+backend/target/
+backend/data/
+frontend/node_modules/
+frontend/dist/
+.vscode/
+outputs/
+work/
+.idea/
+*.iml

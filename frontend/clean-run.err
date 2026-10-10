@@ -1,0 +1,7 @@
+X [ERROR] TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled. [plugin angular-compiler]
+
+    src/app/app.routes.ts:2:35:
+      2 │ ...oardComponent } from './features/dashboard/dashboard.component.ts';
+        ╵                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
